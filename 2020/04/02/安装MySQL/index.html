@@ -1,214 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>安装MySQL | 我的笔记</title>
-  <meta name="keywords" content=" 数据库 ">
-  <meta name="description" content="安装MySQL | 我的笔记">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="@[toc] 1.打开MySQL服务net start mysql 2.登录服务mysql -u root -p 添加数据库3.创建新数据库pracriceCREATE DATABASE pracrice;！！！注意！！！要加分号 查看数据库4.查看所有数据库SHOW DATABASES; 5.【使用like从句】查看与pracrice完全匹配的数据库SHOW DATABASES LIKE ‘pr">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1.下载MySQL社区版 2.下载免安装包压缩包，解压没有汉语路径的地方 3.安装">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库的增删改除(数据库pracrice)">
-<meta property="og:url" content="http://yoursite.com/2020/04/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E9%99%A4-%E6%95%B0%E6%8D%AE%E5%BA%93pracrice/index.html">
+<meta property="og:title" content="安装MySQL">
+<meta property="og:url" content="http://yoursite.com/2020/04/02/%E5%AE%89%E8%A3%85MySQL/index.html">
 <meta property="og:site_name" content="我的笔记">
-<meta property="og:description" content="@[toc] 1.打开MySQL服务net start mysql 2.登录服务mysql -u root -p 添加数据库3.创建新数据库pracriceCREATE DATABASE pracrice;！！！注意！！！要加分号 查看数据库4.查看所有数据库SHOW DATABASES; 5.【使用like从句】查看与pracrice完全匹配的数据库SHOW DATABASES LIKE ‘pr">
+<meta property="og:description" content="1.下载MySQL社区版 2.下载免安装包压缩包，解压没有汉语路径的地方 3.安装">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-04-02T06:22:54.000Z">
-<meta property="article:modified_time" content="2020-04-02T06:28:04.392Z">
+<meta property="article:published_time" content="2020-04-02T06:21:47.000Z">
+<meta property="article:modified_time" content="2020-04-02T08:36:32.925Z">
 <meta property="article:author" content="gzx">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
 
+<link rel="canonical" href="http://yoursite.com/2020/04/02/%E5%AE%89%E8%A3%85MySQL/">
 
-<link href="/css/style.css?v=1.0.1" rel="stylesheet">
 
-<link href="/css/hl_theme/atom-light.css?v=1.0.1" rel="stylesheet">
-
-<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
-<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="/js/jquery.autocomplete.min.js?v=1.0.1" ></script>
-
-<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script>
-    hljs.initHighlightingOnLoad();
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
 </script>
 
-<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
-
-
-
-<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
-
-<script src="/js/iconfont.js?v=1.0.1" ></script>
-
-<meta name="generator" content="Hexo 4.2.0"></head>
-<div style="display: none">
-  <input class="theme_disqus_on" value="false">
-  <input class="theme_preload_comment" value="false">
-  <input class="theme_blog_path" value="">
-</div>
-
-<body>
-<aside class="nav">
-    <div class="nav-left">
-        <a href="/" class="avatar_target">
-    <img class="avatar" src="" />
-</a>
-<div class="author">
-    <span>gzx</span>
-</div>
-
-<div class="icon">
-    
-</div>
+  <title>安装MySQL | 我的笔记</title>
+  
 
 
 
 
-<ul>
-    <li><div class="all active">全部文章<small>(2)</small></div></li>
-    
-</ul>
-<div class="left-bottom">
-    <div class="menus">
-    
-    
-    
-    
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    <div><a class="about  hasFriend  site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
-</div>
-<input type="hidden" id="yelog_site_posts_number" value="2">
+  </div>
 
-<div style="display: none">
-    <span id="busuanzi_value_site_uv"></span>
-    <span id="busuanzi_value_site_pv"></span>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">我的笔记</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
-    </div>
-    <div class="nav-right">
-        <div class="friends-area">
-    <div class="friends-title">
-        友情链接
-        <i class="back-title-list"></i>
-    </div>
-    <div class="friends-content">
-        <ul>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>目录</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
-        </ul>
-    </div>
-</div>
-        <div class="title-list">
-    <form onkeydown="if(event.keyCode === 13){return false;}">
-        <input id="local-search-input" class="search" type="text" placeholder="Search..." />
-        <i class="cross"></i>
-        <span>
-            <label for="tagswitch">Tags:</label>
-            <input id="tagswitch" type="checkbox" style="display: none" />
-            <i id="tagsWitchIcon"></i>
-        </span>
-    </form>
-    <div class="tags-list">
-    
-    <li class="article-tag-list-item">
-        <a class="color4">数据库</a>
-    </li>
-    
-    <div class="clearfix"></div>
-</div>
 
     
-    <nav id="title-list-nav">
-        
-        <a  class=""
-           href="/2020/04/02/%E5%AE%89%E8%A3%85MySQL/"
-           data-tag="数据库"
-           data-author="" >
-            <span class="post-title" title="安装MySQL">安装MySQL</span>
-            <span class="post-date" title="2020-04-02 14:21:47">2020/04/02</span>
-        </a>
-        
-        <a  class=""
-           href="/2020/04/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E9%99%A4-%E6%95%B0%E6%8D%AE%E5%BA%93pracrice/"
-           data-tag="数据库"
-           data-author="" >
-            <span class="post-title" title="数据库的增删改除(数据库pracrice)">数据库的增删改除(数据库pracrice)</span>
-            <span class="post-date" title="2020-04-02 14:22:54">2020/04/02</span>
-        </a>
-        
-    </nav>
-</div>
-    </div>
-    <div class="hide-list">
-        <div class="semicircle">
-            <div class="brackets first"><</div>
-            <div class="brackets">&gt;</div>
-        </div>
-    </div>
-</aside>
-<div class="post">
-    <div class="pjax">
-        <article id="post-安装MySQL" class="article article-type-post" itemscope itemprop="blogPost">
-    
-        <h1 class="article-title">安装MySQL</h1>
-    
-    <div class="article-meta">
-        
-        
-        
-        
-        <span class="tag">
-            
-            <a class="color4">数据库</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-        创建时间:<time class="date" title='更新时间: 2020-04-02 14:23:45'>2020-04-02 14:21</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读:<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/02/%E5%AE%89%E8%A3%85MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="gzx">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的笔记">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          安装MySQL
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-02 14:21:47 / 修改时间：16:36:32" itemprop="dateCreated datePublished" datetime="2020-04-02T14:21:47+08:00">2020-04-02</time>
             </span>
-        </span>
-        
-        
-    </div>
+
+          
+
+        </div>
+      </header>
+
     
-    <div class="toc-ref">
     
-        
     
-<style>
-    .left-col .switch-btn,
-    .left-col .switch-area {
-        display: none;
-    }
-    .toc-level-3 i,
-    .toc-level-3 ol {
-        display: none !important;
-    }
-</style>
-</div>
-    
-    <div class="article-entry" itemprop="articleBody">
+    <div class="post-body" itemprop="articleBody">
+
       
         <p>1.下载MySQL社区版</p>
 <p>2.下载免安装包压缩包，解压没有汉语路径的地方</p>
 <p>3.安装</p>
+<a id="more"></a>
 <p>（1）打开cmd管理员</p>
 <p>（2）转到mysql的bin目录下</p>
 <p>（3）安装mysql的服务：mysqld –install</p>
@@ -227,253 +211,140 @@
 
 执行成功后没有提示，如果旧密码输错了，或命令输入格式不对会有错误提示；</code></pre><p>  (8)查看 Mysql 版本<br>       输入：mysql -V  ,回车；（注意：V 大写）</p>
 
-      
-       
     </div>
-</article>
-
-
-
-
-
-
 
     
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          </div>
+
+        
 
 
-
-
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/02/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A2%9E%E5%88%A0%E6%94%B9%E9%99%A4-%E6%95%B0%E6%8D%AE%E5%BA%93pracrice/" rel="next" title="数据库的增删改除(数据库pracrice)">
+      数据库的增删改除(数据库pracrice) <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-    <div class="copyright">
-        <p class="footer-entry">©2017 gzx</p>
-<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+      </footer>
+    
+  </article>
+  
+  
+  
 
-    </div>
-    <div class="full-toc">
-        <button class="full"><span class="min "></span></button>
-<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
-<div class="post-toc"><span class="post-toc-title">目录</span>
-    <div class="post-toc-content">
 
-    </div>
-</div>
-<a class="" id="rocket" ></a>
 
-    </div>
-</div>
-<div class="acParent"></div>
+          </div>
+          
 
-</body>
-<script src="/js/jquery.pjax.js?v=1.0.1" ></script>
-
-<script src="/js/script.js?v=1.0.1" ></script>
 <script>
-    var img_resize = 'default';
-    /*作者、标签的自动补全*/
-    $(function () {
-        $('.search').AutoComplete({
-            'data': ['#数据库',],
-            'itemHeight': 20,
-            'width': 418
-        }).AutoComplete('show');
-    })
-    function initArticle() {
-        /*渲染对应的表格样式*/
-        
-            $(".post .pjax table").addClass("green_title");
-        
-
-        /*渲染打赏样式*/
-        
-
-        /*高亮代码块行号*/
-        
-        $('pre code').each(function(){
-            var lines = $(this).text().trim().split('\n').length, widther='';
-            if (lines>99) {
-                widther = 'widther'
-            }
-            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
-            $(this).addClass('has-numbering ' + widther)
-                    .parent()
-                    .append($numbering);
-            for(var i=1;i<=lines;i++){
-                $numbering.append($('<li/>').text(i));
-            }
-        });
-        
-
-        /*访问数量*/
-        
-        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
-        
-
-        /*代码高亮，行号对齐*/
-        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
-
-        
-        
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
     }
-
-    /*打赏页面隐藏与展示*/
-    
-
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
 
-<!--加入行号的高亮代码块样式-->
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-<style>
-    pre{
-        position: relative;
-        margin-bottom: 24px;
-        border-radius: 10px;
-        border: 1px solid #e2dede;
-        background: #FFF;
-        overflow: hidden;
-    }
-    code.has-numbering{
-        margin-left: 30px;
-    }
-    code.has-numbering.widther{
-        margin-left: 35px;
-    }
-    .pre-numbering{
-        margin: 0px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        padding: 0.5em 3px 0.7em 5px;
-        border-right: 1px solid #C3CCD0;
-        text-align: right;
-        color: #AAA;
-        background-color: #fafafa;
-    }
-    .pre-numbering.widther {
-        width: 35px;
-    }
-</style>
+  <aside class="sidebar">
+    <div class="sidebar-inner">
 
-<!--自定义样式设置-->
-<style>
-    
-    
-    .nav {
-        width: 542px;
-    }
-    .nav.fullscreen {
-        margin-left: -542px;
-    }
-    .nav-left {
-        width: 120px;
-    }
-    
-    
-    @media screen and (max-width: 1468px) {
-        .nav {
-            width: 492px;
-        }
-        .nav.fullscreen {
-            margin-left: -492px;
-        }
-        .nav-left {
-            width: 100px;
-        }
-    }
-    
-    
-    @media screen and (max-width: 1024px) {
-        .nav {
-            width: 492px;
-            margin-left: -492px
-        }
-        .nav.fullscreen {
-            margin-left: 0;
-        }
-        .nav .hide-list.fullscreen {
-            left: 492px
-        }
-    }
-    
-    @media screen and (max-width: 426px) {
-        .nav {
-            width: 100%;
-        }
-        .nav-left {
-            width: 100%;
-        }
-    }
-    
-    
-    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
-        color: #383636;
-    }
-    
-    
-    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
-        color: #5e5e5f;
-    }
-    
-    
-    .nav-right nav a.hover, #local-search-result a.hover{
-        background-color: #e2e0e0;
-    }
-    
-    
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
 
-    /*列表样式*/
-    
-    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
-        border: #e2dede solid 1px;
-        border-radius: 10px;
-        padding: 10px 32px 10px 56px;
-    }
-    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
-        padding-top: 5px;
-        padding-bottom: 5px;
-    }
-    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
-        margin-bottom: auto;
-        margin-left: auto;
-    }
-    
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
 
-    /* 背景图样式 */
-    
-    
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">gzx</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
 
 
-    /*引用块样式*/
-    
 
-    /*文章列表背景图*/
-    
-    .nav-right:before {
-        content: ' ';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.3;
-        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        -ms-background-size: cover;
-        -o-background-size: cover;
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    
+      </div>
 
-    
-</style>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">gzx</span>
+</div>
+  <div class="powered-by"> 
+  </div>
+
+        
 
 
 
@@ -481,4 +352,48 @@
 
 
 
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
 </html>
